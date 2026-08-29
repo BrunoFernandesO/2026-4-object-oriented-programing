@@ -1,2 +1,6 @@
 *.exe
 *.cpp
+*.class
+*.vscode/
+*bin/
+CLAUDE.md
