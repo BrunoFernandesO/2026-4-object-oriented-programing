@@ -3,4 +3,4 @@
 *.class
 *.vscode/
 *bin/
-CLAUDE.md
+*.md
