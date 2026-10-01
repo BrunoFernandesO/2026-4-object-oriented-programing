@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Missão StarLog-Zero: Briefing e Backlog Técnico</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text-main: #c9d1d9;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --warning: #f0883e;
+      --success: #3fb950;
+      --danger: #f85149;
+      --code-bg: #0b0e14;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text-main);
+      padding: 2.5rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2 {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      color: #f0f6fc;
+      font-size: 1.15rem;
+      margin: 1.25rem 0 0.5rem 0;
+    }
+
+    h4 {
+      color: var(--warning);
+      font-size: 1rem;
+      margin: 1rem 0 0.35rem 0;
+    }
+
+    p {
+      margin-bottom: 0.85rem;
+    }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+
+    .meta-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--warning);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .alert-box {
+      background: #1c1412;
+      border: 1px solid #6e2a22;
+      border-left: 4px solid var(--danger);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      color: #ffb4a8;
+    }
+
+    .rule-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.88em;
+      background: var(--code-bg);
+      padding: 0.15em 0.35em;
+      border-radius: 4px;
+      color: #79c0ff;
+      border: 1px solid #21262d;
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 0.75rem 0 1rem 0;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      border: none;
+      color: #e6edf3;
+      font-size: 0.88rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      margin-left: 0.4rem;
+    }
+
+    .badge-time {
+      background: #23422d;
+      color: var(--success);
+      border: 1px solid #2ea043;
+    }
+
+    .checklist-gate li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚨 Incidente StarLog-Zero</h1>
+      <p style="color: var(--text-muted);">
+        Briefing de Incidente Operacional &amp; Caderno de Requisitos Técnicos
+      </p>
+    </header>
+
+    <section class="meta-box">
+      <p><strong>Data Estelar:</strong> Ano 2026</p>
+      <p><strong>Local:</strong> Estação Espacial de Cargas <em>StarLog-Zero</em></p>
+      <p>
+        <strong>Janela Operacional:</strong>
+        <span class="badge badge-time">80 Minutos</span>
+      </p>
+      <p style="margin-top: 0.75rem;">
+        O sistema de suporte à vida e logística entrou em colapso após um pico de energia. Os relatórios de telemetria registraram quatro falhas críticas no código legado:
+      </p>
+      <ol style="margin-bottom: 0.5rem;">
+        <li>Cargas com identificador vazio foram aceitas na esteira, corrompendo a base.</li>
+        <li>Contêineres com limite de 3 unidades aceitaram 4 ou mais cargas por falta de validação segura.</li>
+        <li>Cargas clonadas (mesmo código de rastreio) furaram o fluxo de triagem.</li>
+        <li>O servidor travou sob 100% de CPU devido ao uso de laços imperativos lentos na geração de relatórios.</li>
+      </ol>
+      <p style="margin-top: 0.5rem; font-weight: 600; color: #fff;">
+        Missão do Squad: Reconstruir o motor de dados do zero, aplicando padrões de Engenharia.
+      </p>
+    </section>
+    
+    <div style="background: #21262d; border-radius: 6px; padding: 0.75rem 1rem; margin-top: 1rem; border: 1px solid var(--border);">
+  <p style="margin: 0; font-weight: 600; color: var(--warning);">
+    ⏳ FASES DA OPERAÇÃO:
+  </p>
+  <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem;">
+    <li><strong>00 a 15 min:</strong> <span style="color: #f85149;">VSCode Fechado!</span> Desenho da arquitetura no StarUML.</li>
+    <li><strong>15 a 60 min:</strong> Codificação em equipe das classes nos pacotes oficiais.</li>
+    <li><strong>60 a 75 min:</strong> Injeção do Chaos Monkey na <code>MainResgate.java</code>.</li>
+    <li><strong>75 a 80 min:</strong> Auditoria de compilação via terminal (<code>javac</code>).</li>
+  </ul>
+</div>
+
+    <h2>📋 Caderno de Requisitos Técnicos (O Backlog)</h2>
+
+    <h3>PACOTE 1: <code>br.com.starlog.model</code> (Entidades de Domínio)</h3>
+
+    <div class="rule-card">
+      <h4>📦 Classe 1: <code>Carga.java</code> (Entidade com Identidade Única)</h4>
+      <ul>
+        <li>
+          <strong>RN01 - Encapsulamento &amp; Imutabilidade:</strong>
+          Atributos privados: <code>codigoRastreio</code> (String), <code>categoria</code> (String), <code>pesoKg</code> (double) e <code>valorSeguro</code> (double). O atributo <code>codigoRastreio</code> <strong>deve ser <code>final</code></strong>. Não crie método <code>setCodigoRastreio()</code>.
+        </li>
+        <li>
+          <strong>RN02 - Barreira Defensiva Fail-Fast:</strong>
+          No construtor, antes de qualquer atribuição, valide se <code>codigoRastreio</code> é nulo ou composto apenas por espaços (<code>trim().isEmpty()</code>). Se for inválido, lance:
+          <pre><code>throw new IllegalArgumentException("Codigo de rastreio da carga nao pode ser nulo ou vazio.");</code></pre>
+          Valide também se <code>pesoKg &gt; 0</code>. Caso contrário, lance <code>IllegalArgumentException</code>.
+        </li>
+        <li>
+          <strong>RN03 - Contrato de Hash (<code>equals</code> e <code>hashCode</code>):</strong>
+          Sobrescreva ambos os métodos baseando-se <strong>estritamente</strong> no <code>codigoRastreio</code>. Nunca inclua <code>pesoKg</code>, <code>categoria</code> ou <code>valorSeguro</code> no hash para preservar a busca no <code>HashSet</code>.
+        </li>
+        <li>
+          <strong>RN04 - Representação Textual:</strong>
+          Sobrescreva <code>toString()</code> retornando o padrão:<br />
+          <code>Carga [rastreio=&lt;codigoRastreio&gt;, categoria=&lt;categoria&gt;, peso=&lt;pesoKg&gt;kg, seguro=R$ &lt;valorSeguro&gt;]</code>
+        </li>
+      </ul>
+    </div>
+
+    <h3>PACOTE 2: <code>br.com.starlog.exception</code> (Resiliência Operacional)</h3>
+
+    <div class="rule-card">
+      <h4>🛡️ Classe 2: <code>CapacidadeExcedidaException.java</code> (Checked Exception)</h4>
+      <ul>
+        <li>
+          <strong>RN05 - Hierarquia Compulsória:</strong>
+          A classe <strong>deve herdar diretamente de <code>java.lang.Exception</code></strong> (Checked Exception). É proibido estender <code>RuntimeException</code>.
+        </li>
+        <li>
+          O construtor deve receber a mensagem de erro descritiva e encaminhá-la via <code>super(mensagem);</code>.
+        </li>
+      </ul>
+    </div>
+
+    <h3>PACOTE 1 (Continuação): Agregadores e Motor Funcional</h3>
+
+    <div class="rule-card">
+      <h4>🚢 Classe 3: <code>ModuloCarga.java</code> (Contêiner Físico)</h4>
+      <ul>
+        <li>
+          <strong>RN06 - Atributos e Inicialização:</strong>
+          Atributos privados: <code>idModulo</code> (String), <code>capacidadeMaxima</code> (int) e <code>List&lt;Carga&gt; cargas</code>. Inicialize a lista no construtor (<code>this.cargas = new ArrayList&lt;&gt;();</code>).
+        </li>
+        <li>
+          <strong>RN07 - Trava Física de Capacidade (Fail-Fast):</strong>
+          Método: <code>public void carregarCarga(Carga carga) throws CapacidadeExcedidaException</code>.<br />
+          Se <code>this.cargas.size() &gt;= this.capacidadeMaxima</code>, aborte disparando:
+          <pre><code>throw new CapacidadeExcedidaException("Capacidade maxima de " + this.capacidadeMaxima + " atingida no modulo " + this.idModulo);</code></pre>
+          Havendo vaga, adicione a carga à lista interna.
+        </li>
+        <li>
+          <strong>RN08 - Processamento Declarativo (Streams API — sem <code>for</code> ou <code>if</code>):</strong>
+          <ul>
+            <li><code>public double calcularSeguroTotal()</code>: Soma do seguro de todas as cargas usando <code>.stream().mapToDouble(Carga::getValorSeguro).sum()</code>.</li>
+            <li><code>public long contarPorCategoria(String categoria)</code>: Contagem de cargas da categoria com <code>.stream().filter(...).count()</code>.</li>
+            <li><code>public double calcularSeguroPesadas(double pesoCorte)</code>: Soma do seguro apenas das cargas com peso superior ao corte, encadeando <code>.filter()</code>, <code>.mapToDouble()</code> e <code>.sum()</code>.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="rule-card">
+      <h4>🏛️ Classe 4: <code>BaseLancamento.java</code> (Gerenciador com Busca O(1))</h4>
+      <ul>
+        <li>
+          <strong>RN09 - Indexação Associativa:</strong>
+          Atributo privado: <code>Map&lt;String, ModuloCarga&gt; modulos = new HashMap&lt;&gt;();</code>.
+        </li>
+        <li>
+          <code>cadastrarModulo(ModuloCarga modulo)</code>: Adiciona o módulo usando <code>idModulo</code> como chave (<code>.put(...)</code>).
+        </li>
+        <li>
+          <code>buscarModulo(String idModulo)</code>: Retorna o módulo em O(1) via chave (<code>.get(...)</code>).
+        </li>
+      </ul>
+    </div>
+
+    <h2>⚡ Fase 3: Protocolo Chaos Monkey (Minuto 60 a 75)</h2>
+
+    <div class="alert-box">
+      <strong>⚠️ Alerta de Injeção de Falhas:</strong>
+      Os 4 testes de estresse abaixo devem ser executados a partir do método <code>main</code> da classe <code>MainResgate.java</code> para validar a resiliência do sistema sem modificar o código de modelo já entregue.
+    </div>
+
+    <pre><code>// =========================================================================
+// PROTOCOLO DE TESTES DE ESTRESSE (CHAOS MONKEY - 4 ATAQUES)
+// =========================================================================
+// Lembrete: Importe java.util.Set, java.util.HashSet e as classes dos pacotes model e exception!
+// ATAQUE 1: Injeção de Carga com Dados Espúrios (Fail-Fast)
+try {
+    Carga fantasma = new Carga("    ", "CRIOGENICA", 10.0, 500.0);
+    System.out.println("❌ FALHA: Aceitou codigo vazio!");
+} catch (IllegalArgumentException e) {
+    System.out.println("✅ SUCESSO ATAQUE 1 (Fail-Fast ativado): " + e.getMessage());
+}
+
+// ATAQUE 2: O Clone das Sombras (Teste de Integridade Hash)
+Set&lt;Carga&gt; esteiraTriagem = new HashSet&lt;&gt;();
+Carga c1 = new Carga("ORB-999", "ALIMENTOS", 10.0, 100.0);
+Carga c1Clone = new Carga("ORB-999", "DADOS_ALTERADOS", 999.0, 8000.0); // Mesmo ID, memoria diferente!
+
+esteiraTriagem.add(c1);
+esteiraTriagem.add(c1Clone); // O Set DEVE recusar a duplicata!
+
+if (esteiraTriagem.size() == 1) {
+    System.out.println("✅ SUCESSO ATAQUE 2 (Hash imune a clones): Tamanho do Set = 1");
+} else {
+    System.out.println("❌ FALHA: O clone furou a dispersão e entrou no Set! Tamanho = " + esteiraTriagem.size());
+}
+
+// ATAQUE 3: O Teste de Ruptura de Limite (Checked Exception)
+ModuloCarga moduloTeste = new ModuloCarga("MOD-TESTE", 2);
+try {
+    moduloTeste.carregarCarga(new Carga("C-01", "GERAL", 5.0, 50.0));
+    moduloTeste.carregarCarga(new Carga("C-02", "GERAL", 5.0, 50.0));
+    // A 3ª carga DEVE explodir o alarme!
+    moduloTeste.carregarCarga(new Carga("C-03", "GERAL", 5.0, 50.0));
+    System.out.println("❌ FALHA: Deixou ultrapassar a capacidade fisica!");
+} catch (CapacidadeExcedidaException e) {
+    System.out.println("✅ SUCESSO ATAQUE 3 (Trava de Limite operante): " + e.getMessage());
+}
+
+// ATAQUE 4: Processamento Analítico Funcional (Streams API)
+// O moduloTeste tem 2 cargas de R$ 50.00 cada = R$ 100.00
+double seguroCalculado = moduloTeste.calcularSeguroTotal();
+System.out.println("✅ SUCESSO ATAQUE 4 (Streams Calculado): R$ " + seguroCalculado);</code></pre>
+
+    <h2>🏆 Quality Gate &amp; Homologação (Minuto 75 a 80)</h2>
+
+    <ul class="checklist-gate">
+      <li>
+        <strong>1. Compilação e Execução via Terminal:</strong>
+        <pre><code>javac src/br/com/starlog/model/*.java src/br/com/starlog/exception/*.java src/br/com/starlog/main/*.java
+java -cp src br.com.starlog.main.MainResgate</code></pre>
+      </li>
+      <li>
+        <strong>2. Console 100% Verde:</strong> Todos os 4 cenários do Chaos Monkey devem emitir saídas <code>✅ SUCESSO</code>.
+      </li>
+      <li>
+        <strong>3. Auditoria Clean Code:</strong> Zero laços <code>for</code> e zero condicionais <code>if</code> nos métodos de agregação analítica de <code>ModuloCarga.java</code>.
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
